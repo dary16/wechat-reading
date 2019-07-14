@@ -1,20 +1,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import state from './state';
+import getters from './getters';
+import mutations from './mutations';
+import actions from './action';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-    state: {
-        test: 1
-    },
-    mutations: {
-        SET_TEST: (state, newTest) => {
-            state.test = newTest;
-        }
-    },
-    actions: {
-        setTest: ({ commit, state }, newTest) => {
-            return commit('SET_TEST', newTest);
-        }
-    }
+// 状态机入口文件
+const store = new Vuex.Store({
+    strict: process.env.NODE_ENV !== 'production',
+    state,
+    getters,
+    mutations,
+    actions
 });
+
+export default store;

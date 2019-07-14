@@ -1,20 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view />
   </div>
 </template>
 
 <script>
   export default {
-    mounted() {
-      this.$store.dispatch('setTest', 80).then(() => {
-        console.log(this.$store.state.test);
-      })
-    }
   }
   document.addEventListener('DOMContentLoaded', () => {
     const html = document.querySelector('html')
@@ -24,9 +15,13 @@
   })
 </script>
 
-<style lang="scss" scoped>
-  @import "./assets/css/global.scss";
-
+<style lang="scss"  rel="stylesheet/scss" scoped>
+  @import "./assets/css/global";
+  #app {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
   #nav a {
     font-weight: bold;
     color: #2c3e50;
